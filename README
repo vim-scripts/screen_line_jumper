@@ -1,0 +1,46 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=3346
+
+Assuming your vim window is like this:
+
+15 Some text
+16 Some other text here
+17 more Text                        | cursor here
+18 and some more text
+19 even more text
+20 more and more text
+21 more and more and more text
+22 more and more and more and more text
+23 text text text
+24 more text text and text
+25 more text
+26 even more text
+...
+
+where the numbers are the line number, and your cursor is currently on line 17
+Let say I want to jump to line 21 I either have to
+ 1. press 21G - thats 4 key stroke
+ 2. press j 4 times
+ 3. press 4j (which is fast, but I have to do some extra calculation)
+ 
+This script define a function to easily jump to a line that is visible on the vim window
+
+-----
+
+This script defind 2 functions
+
+MoveLineNumberEndWith(number)
+MoveLineNumberEndWithBackward(number)
+
+the first one will move to the first line where line number t end with <number> *and is currently visible*
+
+for the above example if your cursor is on line 15 call
+MoveLineNumberEndWith(6) will move to line 16
+call MoveLineNumberEndWith(6)  again will move to line 26
+call MoveLineNumberEndWith(6) again will move back to line 16 if line 36 is not visible on your window
+
+The backword version of the function works similarly but it jump backward.
+
+I have comment out some recommendation mapping in the file.
+
+
+
